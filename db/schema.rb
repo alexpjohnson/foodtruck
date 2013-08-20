@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130819234132) do
+ActiveRecord::Schema.define(:version => 20130820021152) do
 
   create_table "trucks", :force => true do |t|
     t.integer  "truck_id"
@@ -30,12 +30,15 @@ ActiveRecord::Schema.define(:version => 20130819234132) do
     t.decimal  "y"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.string   "noi_sent"
+    t.string   "schedule"
     t.string   "approved"
     t.datetime "received"
     t.integer  "prior_permit"
     t.datetime "expiration_date"
-    t.string   "location_string"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
+
+  add_index "trucks", ["truck_id"], :name => "index_trucks_on_truck_id"
 
 end
